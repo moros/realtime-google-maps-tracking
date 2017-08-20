@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using RealtimeGoogleMapsTracking.Utility
+@{
+    var googleApiKey = AppSettings.Get<string>("google-map-api-key");
+}
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -7,10 +12,14 @@
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.4.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/Assets/css/main.css" />
     @RenderSection("head", false)
 </head>
 <body>
     @RenderBody()
+    
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=@googleApiKey&callback=initialize"></script>
     @RenderSection("resources", false)
 </body>
 </html>
